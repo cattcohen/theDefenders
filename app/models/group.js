@@ -23,7 +23,7 @@ module.exports = function(sequelize, Sequelize) {
   });
 
   Group.associate = function(models) {
-    models.group.belongsToMany(models.user, {through:'groupusers'});
+    models.group.belongsToMany(models.user, { through: 'groupusers' });
   };
 
   return Group;
