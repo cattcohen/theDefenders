@@ -1,0 +1,124 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Felicity: The Bootcamp Branch</a>
+        </div>
+
+        <div class="nav navbar-nav navbar-right">
+            <form id="logout" name="logout" action="logout">
+                <button class="btn navbar-btn">Logout</button>
+            </form>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-lg-8 col-sm-6 col-xs-6">
+            <div>
+                <h3>List of Groups</h3>
+                <p id="groupname">Group: {{groupname}}</p>
+                <p id="location">Location: {{grouplocation}}</p>
+                <p id="topic">Topic: {{grouptopic}}</p>
+            </div>
+
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-6">
+            <div class="row user">
+                <p>Welcome {{username}}</p>
+                <p id="email-address">Email: {{email}}</p>
+                <p id="location">Group Location: {{preferredlocation}}</p>
+                <p id="topic">Topic: {{preferredtopic}}</p>
+                <p id="weekday">Week Day: {{preferredday}}</p>
+                <p id="time">Time: {{preferredtime}}</p>
+                <p class="message"><a href="#" onclick="toggleVisibility('prefrences');">Change Prefrences</a></p>
+            </div>
+            <hr>
+            <div id="prefrences">
+                <form id="userprofile" name="userprofile" method="post" action="save">
+                    <div>
+                        <h3>Complete profile to find students</h3>
+                        <hr>
+                        <input type="hidden" value={{id}} name="userid">
+                        <h4> Choose your preferred location</h4>
+                        <div>
+                            <label class="radio-inline">
+                                <input type="radio" name="location" value="Bellevue">Bellevue
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="location" value="South Seattle">South Seattle
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="location" value="North Seattle">North Seattle
+                            </label>
+                        </div>
+                        <h4> Choose your preferred topic</h4>
+                        <div>
+                            <label class="radio-inline">
+                                <input type="radio" name="topic" value="Javascript">Javascript
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="topic" value="Front End Technologies">Front End Technologies
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="topic" value="Back End Technologies">Back End Technologies
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="topic" value="DataStructure and Algorithms">DataStructure and
+                                Algorithms
+                            </label>
+                        </div>
+                        <h4> Choose your preferred day</h4>
+                        <div>
+                            <label class="radio-inline">
+                                <input type="radio" name="weekday" value="Monday">Monday
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="weekday" value="Tuesday">Tuesday
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="weekday" value="Wednesday">Wednesday
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="weekday" value="Thursday">Thursday
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="weekday" value="Friday">Friday
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="weekday" value="Saturday">Saturday
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="weekday" value="Sunday">Sunday
+                            </label>
+                        </div>
+                        <h4> Choose your preferred time</h4>
+                        <div>
+                            <label class="radio-inline">
+                                <input type="radio" name="time" value="Morning (8am - 12pm)">Morning (8am - 12pm)
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="time" value="Noon (12pm - 4pm)">Noon (12pm - 4pm)
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="time" value="Evening (4pm - 7pm)">Evening (4pm - 7pm)
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="time" value="Late Evening (7pm - 9pm)">Late Evening (7pm -
+                                9pm)
+                            </label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-flex justify-content-center mb-3">
+                            <button type="submit" class="btn navbar-btn">Save</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/index.js"></script>
