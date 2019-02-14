@@ -1,11 +1,6 @@
+'use strict';
 module.exports = function(sequelize, Sequelize) {
   var User = sequelize.define('user', {
-    id: {
-      autoIncrement: true,
-      primaryKey: true,
-      type: Sequelize.INTEGER
-    },
-
     firstname: {
       type: Sequelize.STRING,
       notEmpty: true
@@ -17,11 +12,15 @@ module.exports = function(sequelize, Sequelize) {
     },
 
     username: {
-      type: Sequelize.TEXT
+      type: Sequelize.STRING,
+      unique: true,
+      allowNull: false
     },
 
     email: {
       type: Sequelize.STRING,
+      unique: true,
+      allowNull: false,
       validate: {
         isEmail: true
       }
@@ -39,8 +38,28 @@ module.exports = function(sequelize, Sequelize) {
     status: {
       type: Sequelize.ENUM('active', 'inactive'),
       defaultValue: 'active'
+    },
+
+    preferredlocation: {
+      type: Sequelize.STRING
+    },
+
+    preferredtopic: {
+      type: Sequelize.STRING
+    },
+
+    preferredday: {
+      type: Sequelize.STRING
+    },
+
+    preferredtime: {
+      type: Sequelize.STRING
     }
   });
+
+  User.associate = function(models) {
+    models.user.belongsToMany(models.group, {through: 'groupusers'});
+  };
 
   return User;
 };

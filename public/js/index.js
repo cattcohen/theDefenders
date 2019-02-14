@@ -7,4 +7,7 @@ toggleVisibility = function(id) {
   } else {
     $('#signin').css('display', 'block');
   }
+  if (e.id === 'prefrences') {
+    $('#prefrences').css('display', 'block');
+  }
 };

@@ -1,7 +1,7 @@
 var bCrypt = require('bcrypt-nodejs');
 
-module.exports = function(passport, user) {
-  var User = user;
+module.exports = function(passport, models) {
+  var User = models.user;
   var LocalStrategy = require('passport-local').Strategy;
 
   passport.use(
@@ -75,7 +75,7 @@ module.exports = function(passport, user) {
       },
 
       function(req, username, password, done) {
-        var User = user;
+        var User = models.user;
 
         var isValidPassword = function(userpass, password) {
           return bCrypt.compareSync(password, userpass);
@@ -98,8 +98,8 @@ module.exports = function(passport, user) {
                 message: 'Incorrect password.'
               });
             }
-
             var userinfo = user.get();
+
             return done(null, userinfo);
           })
           .catch(function(err) {

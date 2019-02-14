@@ -55,10 +55,10 @@
 .form .register-form {
   display: none;
 }
-.container {
+ .container {
   position: relative;
   z-index: 1;
-  max-width: 300px;
+  max-width: auto;
   margin: 0 auto;
 }
 .container:before, .container:after {
@@ -76,10 +76,11 @@
   font-size: 36px;
   font-weight: 300;
   color: #f70b0b;
-}
+} 
 
 
-body {  background-image: url(/images/Banyan.jpg);
+body {  
+  /* background-image: url(/images/Banyan.jpg); */
   background-image: fixed; 
   background-size: 100%;  
   font-family: 'Neuton', serif;
@@ -89,7 +90,11 @@ body {  background-image: url(/images/Banyan.jpg);
 }
 
 div {
-  opacity: 3.0;
   font-family: 'Neuton', serif;
-  
+}
+
+/* Dashboard Profile */
+
+#prefrences{
+  display: none;
 }
