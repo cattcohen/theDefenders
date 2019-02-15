@@ -1,11 +1,9 @@
-var authController = require('../controllers/authcontroller.js');
-
 module.exports = function(app, user, group, groupusers) {
-  app.get('/dashboard', function(req, res) {
-    var User = user;
-    var Group = group;
-    var Groupusers = groupusers;
-  });
+  // app.get('/dashboard', function(req, res) {
+  //   var User = user;
+  //   var Group = group;
+  //   var Groupusers = groupusers;
+  // });
 
   app.post('/save', function(req, res) {
     var User = user;
@@ -20,6 +18,12 @@ module.exports = function(app, user, group, groupusers) {
         where: { id: req.body.userid }
       }
     ).then(function() {
+      User.findAll({
+        where: {
+          id: req.body.userid
+        },
+        include: [group]
+      });
       res.redirect('dashboard');
     });
   });

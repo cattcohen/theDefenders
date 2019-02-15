@@ -17,22 +17,3 @@ exports.logout = function(req, res) {
     res.redirect('/');
   });
 };
-
-// exports.save = function(req, res) {
-  // user.update(
-  //   {
-  //     preferredlocation: req.body.location,
-  //     preferredtopic: req.body.topic,
-  //     preferredday: req.body.weekdayday,
-  //     preferredtime: req.body.time
-  //   },
-  //   {
-  //     where: {
-  //       id: req.body.id
-  //     }
-  //   }
-  // ).then(function(result) {
-    // console.log(req.body);
-    // res.redirect('dashboard');
-  // });
-// };
