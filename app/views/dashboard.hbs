@@ -16,22 +16,53 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-lg-8 col-sm-6 col-xs-6">
-            <div>
-                <h3>List of Groups</h3>
+            <div class="row">
+                <h3>Groups you have joined</h3>
+                {{#each groups }}
+                
                 <p id="groupname">Group: {{groupname}}</p>
                 <p id="location">Location: {{grouplocation}}</p>
                 <p id="topic">Topic: {{grouptopic}}</p>
+
+                {{/each}}
+            </div>
+            <div class="row find-groups">
+               <p class="message"><a href="#" onclick="findGroups();"><h3>Find Groups</h3></a></p>
+               <div class="row exactmatch">
+                   <h3>Groups matching all your preferences</h3>
+                   <div>
+                       <p>
+                           uyuiyi
+                       </p>
+                   </div>
+               </div>
+               <div>
+                   <h3>Groups matching location</h3>
+                   <div>
+                       <p>
+                           uyuiyi
+                       </p>
+                   </div>
+                </div>
+                <div>
+                  <h3>Groups matching topic</h3>
+                   <div>
+                       <p>
+                           uyuiyi
+                       </p>
+                   </div>
+                </div>
             </div>
 
         </div>
         <div class="col-md-4 col-lg-4 col-sm-6 col-xs-6">
             <div class="row user">
-                <p>Welcome {{username}}</p>
-                <p id="email-address">Email: {{email}}</p>
-                <p id="location">Group Location: {{preferredlocation}}</p>
-                <p id="topic">Topic: {{preferredtopic}}</p>
-                <p id="weekday">Week Day: {{preferredday}}</p>
-                <p id="time">Time: {{preferredtime}}</p>
+                <p>Welcome {{dataValues.username}}</p>
+                <p id="email-address">Email: {{dataValues.email}}</p>
+                <p id="location">Group Location: {{dataValues.preferredlocation}}</p>
+                <p id="topic">Topic: {{dataValues.preferredtopic}}</p>
+                <p id="weekday">Week Day: {{dataValues.preferredday}}</p>
+                <p id="time">Time: {{dataValues.preferredtime}}</p>
                 <p class="message"><a href="#" onclick="toggleVisibility('prefrences');">Change Prefrences</a></p>
             </div>
             <hr>
@@ -40,7 +71,7 @@
                     <div>
                         <h3>Complete profile to find students</h3>
                         <hr>
-                        <input type="hidden" value={{id}} name="userid">
+                        <input type="hidden" value={{dataValues.id}} name="userid">
                         <h4> Choose your preferred location</h4>
                         <div>
                             <label class="radio-inline">

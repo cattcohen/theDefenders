@@ -11,3 +11,8 @@ toggleVisibility = function(id) {
     $('#prefrences').css('display', 'block');
   }
 };
+
+findGroups = function()
+{
+    $
+};

@@ -57,9 +57,9 @@ module.exports = function(passport, models) {
 
   // deserialize user
   passport.deserializeUser(function(id, done) {
-    User.findByPk(id).then(function(user) {
+    User.findByPk(id, { include: [models.group] }).then(function(user) {
       if (user) {
-        done(null, user.get());
+        done(null, user);
       } else {
         done(user.errors, null);
       }
@@ -84,7 +84,8 @@ module.exports = function(passport, models) {
         User.findOne({
           where: {
             username: username
-          }
+          },
+          include: [models.group]
         })
           .then(function(user) {
             if (!user) {
@@ -98,9 +99,10 @@ module.exports = function(passport, models) {
                 message: 'Incorrect password.'
               });
             }
-            var userinfo = user.get();
+            //var userinfo = user.get();
+            //console.log(JSON.stringify(user));
 
-            return done(null, userinfo);
+            return done(null, user);
           })
           .catch(function(err) {
             console.log('Error:', err);
