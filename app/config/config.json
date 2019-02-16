@@ -1,14 +1,15 @@
 {
   "development": {
     "username": "root",
-    "password": "test",
+    "password": null,
     "database": "felicityDB",
     "host": "localhost",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "logging": false
   },
   "test": {
     "username": "root",
-    "password": "test",
+    "password": null,
     "database": "felicityTestDB",
     "host": "localhost",
     "dialect": "mysql",
@@ -16,6 +17,7 @@
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "logging": false
   }
 }
