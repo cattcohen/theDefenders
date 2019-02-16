@@ -41,6 +41,9 @@ var models = require('./app/models');
 //Routes
 require('./app/routes/auth.js')(app, passport, models);
 
+var route = require('./app/routes/homeroute');
+app.use(route);
+
 //load passport strategies
 require('./app/config/passport/passport.js')(passport, models);
 
