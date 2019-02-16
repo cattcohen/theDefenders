@@ -9,7 +9,7 @@ exports.index = function(req, res) {
 };
 
 exports.dashboard = function(req, res) {
-  res.render('dashboard', req.user);
+  res.render('dashboard', { user: req.user, group: req.group });
 };
 
 exports.logout = function(req, res) {

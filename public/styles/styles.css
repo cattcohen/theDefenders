@@ -94,7 +94,6 @@ div {
 }
 
 /* Dashboard Profile */
-
-#prefrences{
+.prefrences-form{
   display: none;
 }

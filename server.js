@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 
 var exphbs = require('express-handlebars');
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8000;
 
 //env
 require('dotenv').load();
@@ -39,13 +39,7 @@ app.use(passport.session()); // persistent login sessions
 var models = require('./app/models');
 
 //Routes
-require('./app/routes/auth.js')(app, passport);
-require('./app/routes/dashboard.js')(
-  app,
-  models.user,
-  models.group,
-  models.groupusers
-);
+require('./app/routes/auth.js')(app, passport, models);
 
 //load passport strategies
 require('./app/config/passport/passport.js')(passport, models);
