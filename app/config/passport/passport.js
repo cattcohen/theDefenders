@@ -2,6 +2,7 @@ var bCrypt = require('bcrypt-nodejs');
 
 module.exports = function(passport, models) {
   var User = models.user;
+
   var LocalStrategy = require('passport-local').Strategy;
 
   passport.use(
@@ -35,7 +36,7 @@ module.exports = function(passport, models) {
               lastname: req.body.lastname
             };
 
-            User.create(data).then(function(newUser,created) {
+            User.create(data).then(function(newUser, created) {
               if (!newUser) {
                 return done(null, false);
               }
@@ -57,7 +58,10 @@ module.exports = function(passport, models) {
 
   // deserialize user
   passport.deserializeUser(function(id, done) {
-    User.findByPk(id, { include: [models.group] }).then(function(user) {
+    User.findByPk(id, {
+      attributes: { exclude: ['password'] },
+      include: [models.group]
+    }).then(function(user) {
       if (user) {
         done(null, user);
       } else {
@@ -99,9 +103,6 @@ module.exports = function(passport, models) {
                 message: 'Incorrect password.'
               });
             }
-            //var userinfo = user.get();
-            //console.log(JSON.stringify(user));
-
             return done(null, user);
           })
           .catch(function(err) {
