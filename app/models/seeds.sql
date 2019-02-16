@@ -1,22 +1,3 @@
-/* users password for bye username = bye*/
-INSERT INTO `felicitydb`.`users`
-(`firstname`,
-`lastname`,
-`username`,
-`email`,
-`password`,
-`lastlogin`,
-`status`,
-`preferredlocation`,
-`preferredtopic`,
-`preferredday`,
-`preferredtime`,
-`createdAt`,
-`updatedAt`)
-VALUES
-
-('bye', 'world', 'bye', 'bye@gmail.com', '$2a$08$S57hDwpcrDQYOs1xpXEOde2hDhlFJhzDbpiAaemZ8CzZLghOoA8IW', NULL, 'active', 'South Seattle', 'Front End Technologies', 'Monday', 'Morning (8am - 12pm)', '2019-02-14 12:28:08', '2019-02-14 23:49:35');
-
 
 /* groups */
 INSERT INTO `felicitydb`.`groups`(`groupname`,`grouptopic`,`grouplocation`,`status`,`createdAt`,`updatedAt`) values('Javascript for beginners','Javascript','Bellevue','active',NOW(),NOW());

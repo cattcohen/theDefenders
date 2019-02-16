@@ -10,11 +10,12 @@ toggleVisibility = function(id) {
   }
 
   if (e.id === 'userprofile') {
-    console.log(e.style.display);
     if (e.style.display === 'none') {
       $('#userprofile').css('display', 'block');
+      $('.findgroups').css('display', 'none');
     } else {
       $('#userprofile').css('display', 'none');
+      $('.findgroups').css('display', 'block');
     }
   }
 };
