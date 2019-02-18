@@ -1,7 +1,9 @@
 var authController = require('../controllers/authcontroller.js');
 
 module.exports = function(app, passport, models) {
-  app.get('/', authController.index);
+  app.get('/', authController.home);
+
+  app.get('/index', authController.index);
 
   app.get('/dashboard', isLoggedIn, authController.dashboard);
 
