@@ -1,4 +1,7 @@
 var exports = (module.exports = {});
+exports.home = function(req, res) {
+  res.render('home');
+};
 
 exports.notfound = function(req, res) {
   res.render('404');
